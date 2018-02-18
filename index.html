@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lay</title>
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"> -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="resolution-warning">
+            <img src="img\icons\sad.png" alt="sad poop icon">
+            <p>Sorry, resolution of your device is too low to display app content.</p>
+    </div>
+    <div id="bg-map-container">
+    </div>
+    <div id="container">
+        <!-- HEADER -->
+        <div id="header">
+            <a id="pin-button" class="link" href="#">
+                <img class="button-img" src="img\icons\pin.png" alt="get-location">
+            </a>
+
+            <p id="city"></p>
+            <form autocomplete="off" class="content-hidden" action="" onsubmit="return false">
+                <input type="text" name="city-search" placeholder="CITY NAME" id="city-search">
+            </form>
+            <a id="search-button" class="link" href="#">
+                <img class="button-img" src="img\icons\search.png" alt="search-button">
+            </a>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div id="main-content">
+            <!-- NAVIGATION -->
+            <div id="nav">
+                <a id="button-left" class="link" href="#">
+                    <img class="button-img" src="img\icons\arrow_left.png" alt="section-left">
+                </a>
+                <p id="nav-title">Overview</p>
+                <a id="button-right" class="link" href="#">
+                    <img class="button-img" src="img\icons\arrow_right.png" alt="section-right">
+                </a>
+            </div>
+
+            <!-- OVERVIEW -->
+            <div id="overview">
+                <img id="weather-icon" src="" alt="weather-icon">
+                <p id="temp-value"></p>
+                <p id="description"></p>
+            </div>
+
+            <!-- DETAILS -->
+            <div id="details" class="content-hidden">
+
+            </div>
+            <div id="typeahead" class="content-hidden">
+                <ul></ul>
+            </div>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+        <div id="footer">
+            <p id="date"></p>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
