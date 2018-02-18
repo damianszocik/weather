@@ -75,13 +75,12 @@ function getLocation(callback) {
 function ajax(coordinates, units) {
     let xhrWeather = new XMLHttpRequest();
     if (typeof coordinates == "object") {
-        xhrWeather.open("GET", "http://api.openweathermap.org/data/2.5/weather?lat=" + coordinates.latitude + "&lon=" + coordinates.longitude + "&units=" + units + "&appid=15be2987c14d02b7ae3ade0b84c5ce50", true);
+        xhrWeather.open("GET", "https://api.openweathermap.org/data/2.5/weather?lat=" + coordinates.latitude + "&lon=" + coordinates.longitude + "&units=" + units + "&appid=15be2987c14d02b7ae3ade0b84c5ce50", true);
     } else {
-        xhrWeather.open("GET", "http://api.openweathermap.org/data/2.5/weather?id=" + coordinates + "&units=" + units + "&appid=15be2987c14d02b7ae3ade0b84c5ce50", true);
+        xhrWeather.open("GET", "https://api.openweathermap.org/data/2.5/weather?id=" + coordinates + "&units=" + units + "&appid=15be2987c14d02b7ae3ade0b84c5ce50", true);
     }
     xhrWeather.addEventListener("loadend", function () {
         let weather = JSON.parse(this.response);
-        console.log(weather);
         //injecting data to page
         city.innerHTML = weather.name;
         city.setAttribute("data-city-id", weather.id);
