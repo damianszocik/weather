@@ -1,0 +1,8 @@
+{
+  "name": "Weather App",
+  "short_name": "Weather",
+  "lang": "en-US",
+  "start_url": "https://damianszocik.github.io/weather/",
+  "display": "standalone",
+  "theme_color": "#f82363"
+}
