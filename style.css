@@ -57,7 +57,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6% 10%;
+    padding: 1.65em 2.4em;
 }
 
 .link {
@@ -74,6 +74,10 @@ body {
     color: #fff;
     font-stretch: condensed;
     text-align: center;
+}
+
+#header a:nth-child(2) {
+    text-align: right;
 }
 
 .button-img {
@@ -446,7 +450,7 @@ body {
     }
 }
 
-@media screen and (max-height: 600px) and (orientation: landscape) {
+@media screen and (max-height: 600px) and (orientation: landscape) and (min-aspect-ratio: 13/9){
     html {
         transform: rotate(-90deg);
         transform-origin: left top;
