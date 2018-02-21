@@ -76,7 +76,7 @@ body {
     text-align: center;
 }
 
-#header a:nth-child(2) {
+#search-button {
     text-align: right;
 }
 
