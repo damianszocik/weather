@@ -35,7 +35,7 @@ const date = document.querySelector("#date");
 /////////////////
 
 //CHROME VH UNITS FIX
-chromeFix = new VHChromeFix({selector: "body", vh: 100})
+chromeFix = new VHChromeFix({selector: "html", vh: 100})
 
 // ADD ANIMATION
 function animate(element, className, animationTime) {
