@@ -1,0 +1,102 @@
+{
+    "name": "Weather App",
+    "short_name": "Weather",
+    "start_url": "https://damianszocik.github.io/weather/",
+    "display": "standalone",
+    "theme_color": "#f82363",
+    "icons": [
+        {
+            "src": "/images/a88297aa-2d4f-646c-4f59-33b5f3dd5173.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/c5b85df6-82cc-5ef5-79ef-78f5b7f3b8ca.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/8e3061af-0f32-7bb7-a8c4-4b01cdf2d5b2.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/a0129adb-f349-459c-6c21-e292506417aa.webPlatform.png",
+            "sizes": "150x150",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/544afce1-5ec8-6ee1-21ee-0d83a2a2e356.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/2e1cdcd0-cd3d-3d7d-b666-f3301879ae5a.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/7accee53-fa91-284f-2f5c-e8edcb2d481a.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/e8301743-a7c9-ab61-81f0-2d21ec9fa777.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/a8222a47-050e-9f49-11f6-1fb0399f0212.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/203b17ac-d93c-6a8a-3fc4-6d89569ea5f0.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/cae7b6b5-7633-5397-7ef5-c0e06cda9631.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ae79ce6c-ee8f-ba7d-cccd-ae08a3afb6c9.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/9c165d0e-69f2-e3c9-f417-bf45dcc3b4f8.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/2cbeb251-9db4-822a-c372-7b54b8a2a364.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/e7795409-a616-a4f3-446b-b89d760bac28.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/674481f5-79bd-a1cb-90df-4f11179d4b74.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/b4333d02-e972-7c37-1060-06e0804b640b.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "/images/ed4ae307-64cc-73fe-b80c-8eeb04cd2ff8.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ],
+    "orientation": "landscape",
+    "description": "Let's find out how's the weather around the world!",
+    "background_color": "#ffffff"
+}

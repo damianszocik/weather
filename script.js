@@ -3,6 +3,7 @@ const bgMapContainer = document.querySelector("#bg-map-container");
 var map;
 var cityList;
 var val;
+var chromeFix; //chrome fix library var
 
 // HEADER ITEMS
 const pinButton = document.querySelector("#pin-button");
@@ -31,6 +32,9 @@ const date = document.querySelector("#date");
 /////////////////
 ////FUNCTIONS////
 /////////////////
+
+//CHROME VH UNITS FIX
+chromeFix = new VHChromeFix({selector: "body", vh: 100})
 
 // ADD ANIMATION
 function animate(element, className, animationTime) {
@@ -353,4 +357,5 @@ searchBar.addEventListener("input", function () {
     }, 600);
 });
 
-
+//LOCK ORIENTATION
+screen.orientation.lock('landscape-primary');
