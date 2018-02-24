@@ -23,7 +23,8 @@ const icon = document.querySelector("#weather-icon")
 const description = document.querySelector("#description");
 const detailsSection = document.querySelector("#details");
 const weatherDescription = document.querySelector("#weather-description");
-const typeaheadList = document.querySelector("#typeahead ul")
+const typeaheadList = document.querySelector("#typeahead ul");
+const mainContent = document.querySelector("#main-content");
 
 // FOOTER ITEMS
 const date = document.querySelector("#date");
@@ -357,5 +358,13 @@ searchBar.addEventListener("input", function () {
     }, 600);
 });
 
-//LOCK ORIENTATION
-screen.orientation.lock('landscape-primary');
+var touchGesture = new Hammer(mainContent);
+touchGesture.on("swipeleft", function() {
+	switchContent("right");
+    switchTitle();
+});
+
+touchGesture.on("swiperight", function() {
+    switchContent("left");
+    switchTitle();
+})
