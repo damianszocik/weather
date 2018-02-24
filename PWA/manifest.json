@@ -1,7 +1,6 @@
 {
     "name": "Weather App",
     "short_name": "Weather",
-    "scope": "/",
     "start_url": "https://damianszocik.github.io/weather/",
     "display": "standalone",
     "theme_color": "#f82363",
@@ -72,7 +71,7 @@
             "type": "image/png"
         },
         {
-            "src": "/images/2cbeb251-9db4-822a-c372-7b54b8a2a364.webPlatform.png",
+            "src": "/imaglandscapees/2cbeb251-9db4-822a-c372-7b54b8a2a364.webPlatform.png",
             "sizes": "1024x1024",
             "type": "image/png"
         },
@@ -97,7 +96,7 @@
             "type": "image/png"
         }
     ],
-    "orientation": "landscape",
+    "orientation": "portrait",
     "description": "Let's find out how's the weather around the world!",
     "background_color": "#ffffff"
 }
