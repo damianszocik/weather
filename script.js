@@ -335,6 +335,18 @@ arrowLeft.addEventListener("click", function () {
     switchTitle();
 });
 
+//SWIPE GESTURES TO SWITCH CONTENT via HAMMER
+var touchGesture = new Hammer(mainContent);
+touchGesture.on("swipeleft", function() {
+	switchContent("right");
+    switchTitle();
+});
+
+touchGesture.on("swiperight", function() {
+    switchContent("left");
+    switchTitle();
+})
+
 // SWITCH UNITS
 temp.addEventListener("click", function() {
     if (unitType == "metric") {
@@ -348,7 +360,6 @@ temp.addEventListener("click", function() {
 // SHOW SEARCH INPUT
 searchButton.addEventListener("click", toggleSearch);
 
-
 //SEARCH
 var timeout;
 searchBar.addEventListener("input", function () {
@@ -358,13 +369,13 @@ searchBar.addEventListener("input", function () {
     }, 600);
 });
 
-var touchGesture = new Hammer(mainContent);
-touchGesture.on("swipeleft", function() {
-	switchContent("right");
-    switchTitle();
-});
 
-touchGesture.on("swiperight", function() {
-    switchContent("left");
-    switchTitle();
-})
+//SERVICE WORKER
+if ("serviceWorker" in navigator) {
+    try {
+        navigator.serviceWorker.register("serviceWorker.js");
+        console.log("serviceWorker registered");
+    } catch (error) {
+        console.log("serviceWorker not registered");
+    }
+}
