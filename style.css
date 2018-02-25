@@ -14,7 +14,7 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    }   
+}
 
 body {
     display: flex;
@@ -33,7 +33,6 @@ body {
     position: absolute;
     filter: blur(1px);
 }
-
 
 #container {
     width: 45vh;
@@ -89,7 +88,6 @@ body {
 .button-img:hover {
     transform: scale(1.1);
 }
-
 
 #header form {
     width: 80%;
@@ -189,7 +187,6 @@ body {
     margin-top: 7%;
 }
 
-
 #details p {
     font-family: var(--Amiko-font);
     margin: 1em 0;
@@ -203,7 +200,6 @@ body {
 #details p:hover {
     transform: scale(1.03)
 }
-
 
 #details p::before {
     position: absolute;
@@ -225,12 +221,12 @@ body {
     top: 0;
     width: 100%;
     height: 0%;
-    z-index: 1;
+    z-index: 2;
     transition: all 0.2s ease-in-out;
 }
 
 .typeahead-unfold {
-    height: 100% !important; 
+    height: 100% !important;
 }
 
 #typeahead ul {
@@ -268,6 +264,45 @@ body {
     color: #fff;
     font-size: 0.8em;
     letter-spacing: 1px;
+}
+
+#warning {
+    padding: 1em;
+    box-sizing: border-box;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#warning img {
+    width: 70%;
+    height: auto;
+}
+
+#warning p {
+    text-align: right;
+    font-family: var(--SecularOne-font);
+    text-align: justify;
+    color: var(--blue);
+    font-size: 1.2em;
+}
+
+/* CHANGE UNITS TOOLTIP  */
+
+[data-balloon]::after {
+    background: var(--pink);
+}
+
+[data-balloon][data-balloon-pos='left']:before {
+    background: no-repeat url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22#f82363%22%20transform%3D%22rotate(-90 18 18)%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E");
+    background-size: 100% auto;
 }
 
 /* ANIMATIONS */
@@ -310,7 +345,6 @@ body {
     to {
         animation-timing-function: ease-in-out;
     }
-
     from {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -325,8 +359,6 @@ body {
     }
 }
 
-
-
 .bounceOutLeft {
     animation-name: bounceOutLeft;
     animation-duration: 0.2s;
@@ -334,7 +366,6 @@ body {
 }
 
 @keyframes bounceOutLeft {
-
     20% {
         opacity: 1;
         transform: translate3d(10px, 0, 0);
@@ -448,7 +479,6 @@ body {
         border-radius: 0px;
         box-shadow: none;
     }
-
     #bg-map-container {
         display: none;
     }
@@ -460,7 +490,7 @@ body {
         flex-direction: column;
         justify-content: space-evenly;
         width: 100%;
-        height:100%;
+        height: 100%;
         position: absolute;
         background-color: #fff;
         z-index: 3;
@@ -468,15 +498,12 @@ body {
         overflow: hidden;
         box-sizing: border-box;
     }
-
     #resolution-warning img {
         display: none;
     }
-
     #resolution-warning p:nth-child(2) {
         display: none;
     }
-
     #resolution-warning p:nth-child(3) {
         text-align: right;
         font-family: var(--SecularOne-font);
@@ -484,37 +511,33 @@ body {
         color: var(--blue);
         font-size: 1em;
     }
-
 }
 
-@media screen and (max-width: 300px) and (orientation: portrait), screen and (max-height: 385px) and (orientation: portrait){
+@media screen and (max-width: 300px) and (orientation: portrait),
+screen and (max-height: 385px) and (orientation: portrait) {
     #resolution-warning {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         width: 100%;
-        height:100%;
+        height: 100%;
         position: absolute;
         background-color: #fff;
         z-index: 3;
         padding: 2em;
         overflow: hidden;
         box-sizing: border-box;
-
     }
-
     #resolution-warning img {
         width: 100%;
         height: auto;
     }
-
     #resolution-warning p:nth-child(2) {
         font-family: var(--SecularOne-font);
         text-align: justify;
         color: var(--blue);
         font-size: 1em;
     }
-
     #resolution-warning p:nth-child(3) {
         display: none;
     }

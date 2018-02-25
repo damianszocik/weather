@@ -25,6 +25,7 @@ const detailsSection = document.querySelector("#details");
 const weatherDescription = document.querySelector("#weather-description");
 const typeaheadList = document.querySelector("#typeahead ul");
 const mainContent = document.querySelector("#main-content");
+const warningText = document.querySelector("#warning-text");
 
 // FOOTER ITEMS
 const date = document.querySelector("#date");
@@ -63,15 +64,34 @@ function getFormattedDate() {
 
 // GEOLOCATON API FUNCTION
 function getLocation(callback) {
+    function handleGeoErrors(error) {
+        warningText.parentElement.classList = "";
+        switch (error.code) {
+            case error.PERMISSION_DENIED:
+                warningText.innerHTML = "User denied the request for Geolocation";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                warningText.innerHTML = "Location information is unavailable";
+                break;
+            case error.TIMEOUT:
+                warningText.innerHTML = "The request to get user location timed out";
+                break;
+            case error.UNKNOWN_ERROR:
+                warningText.innerHTML = "An unknown error occurred";
+                break;
+        }
+    };
     let coordinates = {};
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (pos) {
             coordinates.latitude = pos.coords.latitude;
             coordinates.longitude = pos.coords.longitude;
+            warningText.parentElement.classList = "content-hidden";
             callback(coordinates, unitType);
-        });
+        }, handleGeoErrors);
     } else {
-        alert("Your browser doesn't support geolocation");
+        warningText.parentElement.classList = "";
+        warningText.innerHTML = "Your browser doesn't support geolocation";
     }
 }
 
@@ -86,13 +106,16 @@ function ajax(coordinates, units) {
     }
     xhrWeather.addEventListener("loadend", function () {
         let weather = JSON.parse(this.response);
+        warningText.parentElement.classList = "content-hidden"; //hidding geolocation api warning
         //injecting data to page
         city.innerHTML = weather.name;
         city.setAttribute("data-city-id", weather.id);
         temp.innerHTML = `${weather.main.temp}${(units=="metric")?"°C":"°F"}`;
         icon.setAttribute("src", `img\\weather\\${weather.weather[0].icon}.png`);
         description.innerHTML = weather.weather[0].main;
-        detailsSection.innerHTML = `<p>Right now temperature in <strong>${weather.name}</strong> should be around <strong>${weather.main.temp}${(units=="metric")?"°C":"°F"}</strong>${(weather.main.temp_min == weather.main.temp_max) ? "." : ", and may vary from <strong>"+weather.main.temp_min+((units=="metric")?"°C":"°F")+"</strong> to <strong>"+weather.main.temp_max+((units=="metric")?"°C</strong>.":"°F</strong>.")}</p><p>Cloudiness is about <strong>${weather.clouds.all}%</strong></p><p>Wind speed is <strong>${weather.wind.speed+((units=="metric")?" m/s":" mil/h")}</strong>.</p><p>Day starts at <strong>${new Date(weather.sys.sunrise*1000).getHours()}:${(((new Date(weather.sys.sunrise*1000).getMinutes())<10)?"0":"")+new Date(weather.sys.sunrise*1000).getMinutes()}</strong>, ends at <strong>${new Date(weather.sys.sunset*1000).getHours()}:${(((new Date(weather.sys.sunset*1000).getMinutes())<10)?"0":"")+new Date(weather.sys.sunset*1000).getMinutes()}</strong>.</p>`;
+        console.log(weather.sys.sunrise);
+        console.log(weather.sys.sunset);
+        detailsSection.innerHTML = `<p>Right now temperature in <strong>${weather.name}</strong> should be around <strong>${weather.main.temp}${(units=="metric")?"°C":"°F"}</strong>${(weather.main.temp_min == weather.main.temp_max) ? "." : ", and may vary from <strong>"+weather.main.temp_min+((units=="metric")?"°C":"°F")+"</strong> to <strong>"+weather.main.temp_max+((units=="metric")?"°C</strong>.":"°F</strong>.")}</p><p>Cloudiness is about <strong>${weather.clouds.all}%</strong></p><p>Wind speed is <strong>${weather.wind.speed+((units=="metric")?" m/s":" mil/h")}</strong>.</p><p>Day lasts for <strong>${Math.floor((weather.sys.sunset-weather.sys.sunrise)/3600)} hours and ${Math.floor(((weather.sys.sunset-weather.sys.sunrise)%3600)/60)+1} minutes</strong>.</p>`;
         if (typeof map == "undefined") {
             initMap(weather.coord)
         } else {
@@ -106,7 +129,7 @@ function ajax(coordinates, units) {
             date.innerHTML = getFormattedDate();
             animate(date, "bounceInDown", 200);
         }, 3000);
-    });
+    });      
     xhrWeather.send();
 }
 

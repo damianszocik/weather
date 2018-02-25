@@ -8,6 +8,7 @@
     <title>Weather App</title>
     <link rel="icon" href="img\weather\01d.png">
     <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/balloon-css/0.5.0/balloon.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -52,7 +53,7 @@
             <!-- OVERVIEW -->
             <div id="overview">
                 <img id="weather-icon" src="">
-                <p id="temp-value"></p>
+                <p data-balloon="Change units" data-balloon-pos="left" id="temp-value" ></p>
                 <p id="description"></p>
             </div>
 
@@ -62,6 +63,11 @@
             </div>
             <div id="typeahead" class="content-hidden">
                 <ul></ul>
+            </div>
+
+            <div id="warning" class="content-hidden">
+                <img src="img\icons\sad.png" alt="sad poop icon">
+                <p id="warning-text"></p>
             </div>
 
         </div>
