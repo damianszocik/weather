@@ -417,3 +417,13 @@ if ("serviceWorker" in navigator) {
         console.log("serviceWorker not registered");
     }
 }
+
+//PRELOADER
+
+window.addEventListener("loadstart", function() {
+    togglePreloader();
+});
+
+document.addEventListener("load", function() {
+    togglePreloader();
+})
