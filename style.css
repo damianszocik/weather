@@ -22,6 +22,100 @@ body {
     align-items: center;
 }
 
+#preloader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: wait;
+}
+
+.zoom-out {
+    animation: zoom-out 5s;
+}
+
+#preloader-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 2;
+}
+
+#preloader-circle div {
+    /* box-sizing: border-box; */
+    width: 15rem;
+    height: 15rem;
+    border: 1rem solid;
+    border-radius: 50%;
+    border-top-color: var(--pink);
+    border-bottom-color: var(--pink);
+    border-left-color: var(--blue);
+    border-right-color: var(--blue);
+    animation: preloader 1s infinite cubic-bezier(0.680, -0.550, 0.265, 1.550);
+    ;
+}
+
+#preloader-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 3;
+}
+
+#preloader-text div {
+    font-family: var(--Amiko-font);
+    color: var(--blue);
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 0px;
+    animation: wooble 1s infinite ease-in-out;
+}
+
+@keyframes preloader {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes wooble {
+    20% {
+        transform: rotate(-10deg)
+    }
+    80% {
+        transform: rotate(10deg);
+    }
+    to {
+        transform: rotate(0);
+    }
+}
+
+@keyframes zoom-out {
+    from {
+        opacity: 1;
+        border-radius: 0;
+      }
+
+      20% {
+        border-radius: 50%;
+      }
+    
+      50% {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+      }
+    
+      to {
+        opacity: 0;
+      }
+}
+
 #resolution-warning {
     display: none;
 }
@@ -35,6 +129,7 @@ body {
 }
 
 #container {
+    position: relative;
     width: 45vh;
     height: 70vh;
     padding: 0;
@@ -310,7 +405,7 @@ body {
 .bounceInDown {
     animation-name: bounceInDown;
     animation-duration: 0.2s;
-    animation-fill-mode: forwards;
+    animation-fill-mode: both;
 }
 
 @keyframes bounceInDown {
@@ -335,8 +430,8 @@ body {
 
 .bounceOutUp {
     animation-name: bounceInDown;
-    animation-duration: 0.2s;
-    animation-fill-mode: forwards;
+    animation-duration: 5s;
+    animation-fill-mode: both;
 }
 
 @keyframes bounceOutUp {

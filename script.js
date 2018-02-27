@@ -5,6 +5,9 @@ var cityList;
 var val;
 var chromeFix; //chrome fix library var
 
+// PRELOADER
+const preloaderContainer = document.querySelector("#preloader");
+
 // HEADER ITEMS
 const pinButton = document.querySelector("#pin-button");
 const searchButton = document.querySelector("#search-button");
@@ -46,6 +49,15 @@ function animate(element, className, animationTime) {
     }, animationTime)
 }
 
+//TOGGLE PRELOADER
+function togglePreloader() {
+    if (preloaderContainer.classList != "") {
+        preloaderContainer.classList = "";
+    } else {
+        preloaderContainer.classList = "content-hidden"
+    }
+}
+
 // DATE FUNCTION
 function getFormattedDate() {
     let date = new Date();
@@ -65,6 +77,7 @@ function getFormattedDate() {
 // GEOLOCATON API FUNCTION
 function getLocation(callback) {
     function handleGeoErrors(error) {
+        togglePreloader();
         warningText.parentElement.classList = "";
         switch (error.code) {
             case error.PERMISSION_DENIED:
@@ -83,9 +96,11 @@ function getLocation(callback) {
     };
     let coordinates = {};
     if (navigator.geolocation) {
+        togglePreloader();
         navigator.geolocation.getCurrentPosition(function (pos) {
             coordinates.latitude = pos.coords.latitude;
             coordinates.longitude = pos.coords.longitude;
+            togglePreloader();
             warningText.parentElement.classList = "content-hidden";
             callback(coordinates, unitType);
         }, handleGeoErrors);
@@ -98,6 +113,7 @@ function getLocation(callback) {
 
 // WEATHER API AJAX CALL
 function ajax(coordinates, units) {
+    togglePreloader();
     let xhrWeather = new XMLHttpRequest();
     if (typeof coordinates == "object") {
         xhrWeather.open("GET", "https://api.openweathermap.org/data/2.5/weather?lat=" + coordinates.latitude + "&lon=" + coordinates.longitude + "&units=" + units + "&appid=15be2987c14d02b7ae3ade0b84c5ce50", true);
@@ -113,15 +129,14 @@ function ajax(coordinates, units) {
         temp.innerHTML = `${weather.main.temp}${(units=="metric")?"°C":"°F"}`;
         icon.setAttribute("src", `img\\weather\\${weather.weather[0].icon}.png`);
         description.innerHTML = weather.weather[0].main;
-        console.log(weather.sys.sunrise);
-        console.log(weather.sys.sunset);
         detailsSection.innerHTML = `<p>Right now temperature in <strong>${weather.name}</strong> should be around <strong>${weather.main.temp}${(units=="metric")?"°C":"°F"}</strong>${(weather.main.temp_min == weather.main.temp_max) ? "." : ", and may vary from <strong>"+weather.main.temp_min+((units=="metric")?"°C":"°F")+"</strong> to <strong>"+weather.main.temp_max+((units=="metric")?"°C</strong>.":"°F</strong>.")}</p><p>Cloudiness is about <strong>${weather.clouds.all}%</strong></p><p>Wind speed is <strong>${weather.wind.speed+((units=="metric")?" m/s":" mil/h")}</strong>.</p><p>Day lasts for <strong>${Math.floor((weather.sys.sunset-weather.sys.sunrise)/3600)} hours and ${Math.floor(((weather.sys.sunset-weather.sys.sunrise)%3600)/60)+1} minutes</strong>.</p>`;
         if (typeof map == "undefined") {
             initMap(weather.coord)
         } else {
             let uluru = {lat: weather.coord.lat, lng: weather.coord.lon};
             map.panTo(uluru)
-        }            
+        }
+        togglePreloader();            
         date.innerHTML = "Data updated!";
         animate(date, "bounceInDown", 200);
         setTimeout(function () {

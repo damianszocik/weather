@@ -14,14 +14,20 @@
 
 <body>
     <div id="resolution-warning">
-            <img src="img\icons\sad.png" alt="sad poop icon">
-            <p>Sorry, resolution of your device is too low to display app content.</p>
-            <p>Sorry, app is meant to be used in a portrait mode only.</p>
+        <img src="img\icons\sad.png" alt="sad poop icon">
+        <p>Sorry, resolution of your device is too low to display app content.</p>
+        <p>Sorry, app is meant to be used in a portrait mode only.</p>
     </div>
-    
+
     <div id="bg-map-container">
-    </div>
+    </div>  
     <div id="container">
+        <!-- PRELOADER -->
+        <div id="preloader" class="content-hidden">
+            <div id="preloader-circle"><div></div></div>
+            <div id="preloader-text"><div>loading</div></div>
+        </div>
+        
         <!-- HEADER -->
         <div id="header">
             <a id="pin-button" class="link" href="#">
@@ -53,7 +59,7 @@
             <!-- OVERVIEW -->
             <div id="overview">
                 <img id="weather-icon" src="">
-                <p data-balloon="Change units" data-balloon-pos="left" id="temp-value" ></p>
+                <p data-balloon="Change units" data-balloon-pos="left" id="temp-value"></p>
                 <p id="description"></p>
             </div>
 
