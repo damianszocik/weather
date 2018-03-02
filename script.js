@@ -409,14 +409,26 @@ searchBar.addEventListener("input", function () {
 
 
 //SERVICE WORKER
-if ("serviceWorker" in navigator) {
-    try {
-        navigator.serviceWorker.register("serviceWorker.js");
-        console.log("serviceWorker registered");
-    } catch (error) {
-        console.log("serviceWorker not registered");
-    }
-}
+// if ("serviceWorker" in navigator) {
+//     try {
+//         navigator.serviceWorker.register("serviceWorker.js");
+//         console.log("serviceWorker registered");
+//     } catch (error) {
+//         console.log("serviceWorker not registered");
+//     }
+// }
+
+if (navigator.serviceWorker.controller) {
+    console.log('[PWA Builder] active service worker found, no need to register')
+  } else {
+    //Register the ServiceWorker
+    navigator.serviceWorker.register('serviceWorker.js', {
+      scope: '/'
+    }).then(function(reg) {
+      console.log('Service worker has been registered for scope: '+ reg.scope);
+    });
+  }
+  
 
 //PRELOADER
 
