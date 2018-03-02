@@ -7,7 +7,7 @@
   "orientation": "portrait",
   "lang": "en",
   "description": "Let's find out how's the weather around the world!",
-  "Scope": "/",
+  "Scope": "https://damianszocik.github.io/weather",
   "start_url": "https://damianszocik.github.io/weather",
   "icons": [
     {
