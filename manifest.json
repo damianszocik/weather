@@ -7,8 +7,8 @@
   "orientation": "portrait",
   "lang": "en",
   "description": "Let's find out how's the weather around the world!",
-  "Scope": "/",
-  "start_url": "/",
+  "Scope": "/weather/",
+  "start_url": "/weather/",
   "icons": [
     {
       "src": "img/PWA/icons/icon-72x72.png",
