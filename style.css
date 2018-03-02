@@ -405,7 +405,7 @@ body {
 .bounceInDown {
     animation-name: bounceInDown;
     animation-duration: 0.2s;
-    animation-fill-mode: both;
+    animation-fill-mode: forwards;
 }
 
 @keyframes bounceInDown {
@@ -430,7 +430,7 @@ body {
 
 .bounceOutUp {
     animation-name: bounceInDown;
-    animation-duration: 5s;
+    animation-duration: 0.2s;
     animation-fill-mode: both;
 }
 
