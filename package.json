@@ -4,8 +4,8 @@
   "description": "Weather app",
   "main": "script.js",
   "scripts": {
-    "webpack-dev": "webpack --mode development",
-    "webpack-prod": "webpack --mode production"
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
   },
   "repository": {
     "type": "git",

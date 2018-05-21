@@ -5,7 +5,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     watch: true,
-    mode: "development", //ta opcja zostanie pominięta jeżeli użyjemy npm run build
+    mode: "development",
     devtool: "source-map",
     module: {
         rules: [
