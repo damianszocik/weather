@@ -1,2 +1,2 @@
 Weather app
-Visit https://https://damianszocik.github.io/weather for working demo.
+Visit https://damianszocik.github.io/weather for working demo.
