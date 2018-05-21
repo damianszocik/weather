@@ -1,4 +1,7 @@
+#dirs
 node_modules/
 design/
+
+#files
 template.jpg
 package-lock.json
